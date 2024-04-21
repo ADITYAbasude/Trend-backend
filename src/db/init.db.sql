@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT username_unique UNIQUE (username),
-    CONSTRAINT mobile_number_unique UNIQUE (mobile_number)
+    CONSTRAINT mail_id_unique UNIQUE (mail_id)
 );
 
 CREATE TABLE IF NOT EXISTS otp (
@@ -61,14 +61,14 @@ CREATE TABLE IF NOT EXISTS votes (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS reports (
-    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
-    post_id UUID REFERENCES posts(id) ON DELETE CASCADE,
-    report VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+-- CREATE TABLE IF NOT EXISTS reports (
+--     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+--     user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+--     post_id UUID REFERENCES posts(id) ON DELETE CASCADE,
+--     report VARCHAR(255),
+--     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- );
 
 
 CREATE TABLE IF NOT EXISTS taggers (
