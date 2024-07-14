@@ -10,9 +10,10 @@ const connectionString = isProduction
 const pool = new Pool({
   connectionString: connectionString,
 
-  //* For vercel deployment
+  //* For vercel production server
   ssl: {
-    rejectUnauthorized: false,
+    rejectUnauthorized:false,
+    // ca: process.env.DATABASE_CA,
   },
 });
 
